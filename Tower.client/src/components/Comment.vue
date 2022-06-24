@@ -21,6 +21,7 @@ export default {
   setup(props) {
     return {
       // comments: computed(() => AppState.eventComments)
+      // set up a function to handle deleting a comment..make sure to pass down the props to access the id 
     }
   }
 }

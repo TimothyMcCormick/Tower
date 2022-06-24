@@ -5,6 +5,7 @@
     <p>{{ account.email }}</p>
   </div>
   <div class="row justify-content-center">
+    <!-- make sure this component has the ability to delete the ticket -->
     <MyEvents v-for="mt in myTickets" :key="mt.id" :ticket="mt" />
   </div>
 </template>

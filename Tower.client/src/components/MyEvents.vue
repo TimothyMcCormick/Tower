@@ -20,6 +20,7 @@ export default {
   setup() {
     return {
       // myTickets: computed(() => AppState.myTickets)
+      // will need some kind of button and method to handle deleting ticket...make sure to pass down props to access the id
     }
   }
 }

@@ -30,8 +30,22 @@
           >
             Attend!
           </button>
+          <!-- draw another button or element in a v-else for when the capacity is not grater than 0...disable button  -->
+          <!-- <button
+            v-else
+            class="btn btn-primary"
+            @click="getTicket"
+          >
+            Attend!
+          </button> -->
         </div>
       </div>
+    </div>
+    <div class="bg-dark">
+      <!-- v-for over this div -->
+      <!-- <div v-for="t in tickets">
+        <img :src="t.account.picture" alt="">
+        </div> -->
     </div>
     <div class="row justify-content-center">
       <form @submit="createComment">
@@ -65,6 +79,7 @@ export default {
         logger.log(route.params)
         await eventsService.getEventDetails(route.params.id)
         await commentsService.getEventComments(route.params.id)
+        // go get tickets for this event 
       } catch (error) {
         logger.error(error)
         Pop.toast(error.message, 'error')
@@ -75,6 +90,7 @@ export default {
       route,
       activeEvent: computed(() => AppState.activeEvent),
       comments: computed(() => AppState.comments),
+      // will need a computed for the tickets
       formatDate(rawDate) {
         let time = new Date(rawDate)
         return `${time.toDateString()}`

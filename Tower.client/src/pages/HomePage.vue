@@ -8,7 +8,9 @@
       </div>
     </div>
     <div class="row justify-content-around bg-dark p-2 m-2">
+      <!-- each of these will need an @click that will reassign the value of our filter ref('')....will need to reassign the string -->
       <div class="col-md-2">All</div>
+      <!-- @click filter = ''  -->
       <div class="col-md-2">Concerts</div>
       <div class="col-md-2">Convention</div>
       <div class="col-md-2">Sport</div>
@@ -29,6 +31,7 @@ import { AppState } from "../AppState"
 export default {
   name: 'Home',
   setup() {
+    // const filter = ref('')
     onMounted(async () => {
       try {
         await eventsService.getEvents()
