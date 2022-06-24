@@ -1,8 +1,6 @@
 <template>
-  <header>
-    <Navbar />
-  </header>
   <main>
+    <Navbar />
     <router-view class="bg-secondary" />
   </main>
 </template>

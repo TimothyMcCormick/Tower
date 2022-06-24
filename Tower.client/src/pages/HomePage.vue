@@ -15,79 +15,34 @@
       <div class="col-md-2">Digital</div>
     </div>
     <div class="row justify-content-around">
-      <div
-        class="col-md-3 elevation-2 rounded bg-dark m-2"
-        style="width: 18rem"
-      >
-        <img class="img-fluid" src="https://thiscatdoesnotexist.com" alt="" />
-        <h4>Event</h4>
-        <p>Event Details</p>
-      </div>
-      <div
-        class="col-md-3 elevation-2 rounded bg-dark m-2"
-        style="width: 18rem"
-      >
-        <img class="img-fluid" src="https://thiscatdoesnotexist.com" alt="" />
-        <h4>Event</h4>
-        <p>Event Details</p>
-      </div>
-      <div
-        class="col-md-3 elevation-2 rounded bg-dark m-2"
-        style="width: 18rem"
-      >
-        <img class="img-fluid" src="https://thiscatdoesnotexist.com" alt="" />
-        <h4>Event</h4>
-        <p>Event Details</p>
-      </div>
-      <div
-        class="col-md-3 elevation-2 rounded bg-dark m-2"
-        style="width: 18rem"
-      >
-        <img class="img-fluid" src="https://thiscatdoesnotexist.com" alt="" />
-        <h4>Event</h4>
-        <p>Event Details</p>
-      </div>
-    </div>
-    <div class="row justify-content-around">
-      <div
-        class="col-md-3 elevation-2 rounded bg-dark m-2"
-        style="width: 18rem"
-      >
-        <img class="img-fluid" src="https://thiscatdoesnotexist.com" alt="" />
-        <h4>Event</h4>
-        <p>Event Details</p>
-      </div>
-      <div
-        class="col-md-3 elevation-2 rounded bg-dark m-2"
-        style="width: 18rem"
-      >
-        <img class="img-fluid" src="https://thiscatdoesnotexist.com" alt="" />
-        <h4>Event</h4>
-        <p>Event Details</p>
-      </div>
-      <div
-        class="col-md-3 elevation-2 rounded bg-dark m-2"
-        style="width: 18rem"
-      >
-        <img class="img-fluid" src="https://thiscatdoesnotexist.com" alt="" />
-        <h4>Event</h4>
-        <p>Event Details</p>
-      </div>
-      <div
-        class="col-md-3 elevation-2 rounded bg-dark m-2"
-        style="width: 18rem"
-      >
-        <img class="img-fluid" src="https://thiscatdoesnotexist.com" alt="" />
-        <h4>Event</h4>
-        <p>Event Details</p>
-      </div>
+      <Event v-for="e in events" :key="e.id" :event="e" />
     </div>
   </div>
 </template>
 
 <script>
+import { computed, onMounted } from "@vue/runtime-core"
+import Pop from "../utils/Pop"
+import { logger } from "../utils/Logger"
+import { eventsService } from "../services/EventsService"
+import { AppState } from "../AppState"
 export default {
-  name: 'Home'
+  name: 'Home',
+  setup() {
+    onMounted(async () => {
+      try {
+        await eventsService.getEvents()
+      } catch (error) {
+        logger.error(error)
+        Pop.toast(error.message, 'error')
+      }
+    })
+    return {
+      events: computed(() => AppState.events)
+    }
+  }
+
+
 }
 </script>
 
