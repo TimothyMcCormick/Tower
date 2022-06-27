@@ -1,27 +1,29 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <p class="tower-logo p-0 m-0">Tower Events</p>
+  <nav class="navbar navbar-expand-lg navbar-dark nav-color px-3">
+    <p class="tower-logo pe-4 m-1 text-light">Tower Events</p>
 
     <div class="d-flex justify-content-between">
       <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
         <div class="d-flex justify-content-center m-0">
-          <button class="btn btn-primary">Home</button>
+          <!-- <button class="btn btn-primary">Home</button> -->
+          <i class="mdi mdi-home selectable f-24"></i>
         </div>
       </router-link>
       <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }">
         <div class="d-flex justify-content-center m-0">
-          <button class="btn btn-primary">Account</button>
+          <i class="mdi mdi-account selectable f-24"></i>
         </div>
       </router-link>
       <!-- Button trigger modal -->
-      <div class="d-flex justify-content-center m-0">
-        <button
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#modelId"
-        >
-          Create Event
-        </button>
+      <div class="d-flex justify-content-center align-items-center">
+        <span>
+          <i
+            class="mdi mdi-plus-circle f-24 selectable text-light"
+            data-bs-toggle="modal"
+            data-bs-target="#modelId"
+          >
+          </i>
+        </span>
       </div>
     </div>
     <!-- Modal -->
@@ -36,7 +38,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5>Create An Event</h5>
+            <h3>Create An Event</h3>
             <button
               type="button"
               class="btn-close"
@@ -81,7 +83,7 @@ a:hover {
   border-bottom-right-radius: 0;
 }
 .tower-logo {
-  font-size: 24pt;
+  font-size: 36pt;
   font-family: "Bebas Neue", cursive;
   font-family: "Josefin Sans", sans-serif;
   font-family: "Smooch", cursive;

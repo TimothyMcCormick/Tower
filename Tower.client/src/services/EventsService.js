@@ -18,17 +18,32 @@ class EventsService {
     AppState.tickets.push(res.data)
   }
 
+  async getTicketsByEvent(eventId) {
+    const res = await api.get(`api/events/${eventId}/tickets`)
+    logger.log('getting tickets by event', res.data)
+    AppState.eventTickets = res.data
+  }
+
   async createEvent(body) {
     const res = await api.post('api/events', body)
     logger.log('creating event', res.data)
     AppState.events.unshift(res.data)
-    // AppState.activeEvent.push(res.data)
+    // AppState.newEventId = res.data.id
   }
 
   async getEventDetails(id) {
     const res = await api.get(`api/events/${id}`)
     logger.log(res.data)
     AppState.activeEvent = res.data
+  }
+  async cancelEvent(eventId) {
+    const res = await api.delete(`api/events/${eventId}`)
+    logger.log('deleting event', res.data)
+  }
+  async deleteTicket(ticketId) {
+    const res = await api.delete(`api/tickets/${ticketId}`)
+    logger.log('deleting ticket', res.data)
+    AppState.myTickets = AppState.myTickets.filter(mt => mt.id != mt)
   }
 }
 

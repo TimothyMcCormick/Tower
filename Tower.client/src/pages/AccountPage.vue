@@ -4,7 +4,7 @@
     <img class="rounded" :src="account.picture" alt="" />
     <p>{{ account.email }}</p>
   </div>
-  <div class="row justify-content-center">
+  <div class="row m-0 justify-content-center">
     <!-- make sure this component has the ability to delete the ticket -->
     <MyEvents v-for="mt in myTickets" :key="mt.id" :ticket="mt" />
   </div>

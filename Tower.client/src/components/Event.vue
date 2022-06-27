@@ -1,18 +1,18 @@
 <template>
   <div
-    class="col-md-3 elevation-2 rounded bg-dark m-2 selectable"
+    class="col-md-3 event-card elevation-4 rounded m-2 selectable text-dark"
     @click="seeEventDetails"
     style="width: 18rem"
   >
     <img
       v-if="event.isCanceled == false"
-      class="img-fluid"
+      class="img-fluid mt-2"
       :src="event.coverImg"
       alt=""
     />
     <img
       v-else
-      class="img-fluid"
+      class="img-fluid mt-2"
       src="https://nyia.org/wp-content/uploads/2020/03/NYIA_General_Event_Canceled_Sign-01.png"
       alt=""
     />
