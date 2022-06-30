@@ -91,8 +91,8 @@ export default {
       async createEvent() {
         try {
 
-          await eventsService.createEvent(editable.value)
-          // router.push({ name: "EventDetails", params: { id: route.params.id } })
+          let event = await eventsService.createEvent(editable.value)
+          router.push({ name: "EventDetails", params: { id: event.id } })
           // router push that will push me to the eventdetails page.. make sure to supply the params id from the value that is returned from the above function^^
           Pop.toast('Event Created!', 'success')
         } catch (error) {

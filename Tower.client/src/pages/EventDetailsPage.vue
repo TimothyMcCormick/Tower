@@ -42,7 +42,10 @@
             {{ activeEvent.description }}
           </p>
         </div>
-        <div class="col-12 d-flex justify-content-between">
+        <div v-if="activeEvent.isCanceled">
+          <p class="bg-danger text-white text-center">Event Canceled</p>
+        </div>
+        <div v-else class="col-12 d-flex justify-content-between">
           <h5>{{ activeEvent.capacity + " spots left!" }}</h5>
           <button
             v-if="activeEvent.capacity > 0"

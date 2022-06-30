@@ -28,6 +28,7 @@ class EventsService {
     const res = await api.post('api/events', body)
     logger.log('creating event', res.data)
     AppState.events.unshift(res.data)
+    return res.data
     // AppState.newEventId = res.data.id
   }
 
